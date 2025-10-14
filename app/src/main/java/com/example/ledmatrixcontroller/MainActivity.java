@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run(BluetoothPeripheral peripheral){
             String name = peripheral.getName();
-            if (!name.equals("")) {
+            if (!name.isEmpty()) {
 //                Log.i(TAG, "onConnectingPeripheral: " + peripheral.getName());
                 if (!devices.contains(peripheral)) {
                     devices.add(peripheral);
@@ -60,9 +60,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         isConnecting = false;
         updateListView();
-//        SingleColorActivity.clearAll();
-//        PartyActivity.clearAll();
-//        PerlinShowActivity.clearAll();
+        // todo do not forget to empty settings
         if (initSuccess) BluetoothManager.startScan();
     }
 
@@ -77,8 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 devices.clear();
                 updateListView();
-                if (initSuccess)
-                    BluetoothManager.startScan();
+                if (initSuccess) BluetoothManager.startScan();
             }
         });
         listView = findViewById(R.id.listView);
@@ -92,22 +89,20 @@ public class MainActivity extends AppCompatActivity {
                 BluetoothManager.connect(devices.get(i));
                 devices.clear();
                 Toast.makeText(MainActivity.this, "Подключение...", Toast.LENGTH_SHORT).show();
-//                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        if (ProjectManager.wasConnected || ProjectManager.wasVersionError){
-//                            ProjectManager.wasVersionError = false;
-//                            return;
-//                        }
-//                        BluetoothManager.disconnect();
-//                        MainActivity.isConnecting = false;
-//                        updateListView();
-//                        BluetoothManager.startScan();
-//                        Toast.makeText(MainActivity.this, "Неподходящее устройстсво", Toast.LENGTH_SHORT).show();
-//                    }
-//                }, 3000);
-                Intent intent = new Intent(ProjectManager.context, ChatActivity.class);
-                ProjectManager.context.startActivity(intent);
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (ProjectManager.wasConnected || ProjectManager.wasVersionError){
+                            ProjectManager.wasVersionError = false;
+                            return;
+                        }
+                        BluetoothManager.disconnect();
+                        MainActivity.isConnecting = false;
+                        updateListView();
+                        BluetoothManager.startScan();
+                        Toast.makeText(MainActivity.this, "Неподходящее устройстсво", Toast.LENGTH_SHORT).show();
+                    }
+                }, 3000);
             }
         });
         devices = new ArrayList<>();

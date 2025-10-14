@@ -13,6 +13,27 @@
         android:theme="@style/Theme.LEDMatrixController"
         tools:targetApi="31">
         <activity
+            android:name=".RunningTextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GifActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PartyBackgroundActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PerlinBackgroundActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RainbowBackgroundActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SingleColorBackgroundActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
