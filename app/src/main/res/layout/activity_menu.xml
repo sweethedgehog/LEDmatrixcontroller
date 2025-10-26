@@ -8,12 +8,149 @@
     tools:context=".MenuActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/warning_1_menu_activity"
+        android:layout_width="154dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="16dp"
+        android:text="Внимание!\nПри изменении этой настройки стоит перезапустить устройство.\nИначе новое имя не будет принято"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView_upper_menu_activity"
+        app:layout_constraintStart_toEndOf="@+id/bluetooth_name_text_edit_menu_activity"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.613" />
+
+    <ImageButton
+        android:id="@+id/background_select_button_menu_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="menu"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="232dp"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/background_text_view_menu_activity"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_upper_menu_activity" />
+
+    <ImageButton
+        android:id="@+id/anim_select_button_menu_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/anim_text_view_menu_activity"
+        app:layout_constraintTop_toTopOf="@+id/background_select_button_menu_activity" />
+
+    <ImageView
+        android:id="@+id/imageView_upper_menu_activity"
+        android:layout_width="match_parent"
+        android:layout_height="9dp"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:focusableInTouchMode="false"
+        android:scaleType="fitXY"
+        android:src="@android:drawable/bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reboot_button_menu_activity" />
+
+    <ImageView
+        android:id="@+id/imageView_buttom_menu_activity"
+        android:layout_width="match_parent"
+        android:layout_height="9dp"
+        android:adjustViewBounds="true"
+        android:focusableInTouchMode="false"
+        android:scaleType="fitXY"
+        android:src="@android:drawable/bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_middle_menu_activity" />
+
+    <ImageView
+        android:id="@+id/imageView_middle_menu_activity"
+        android:layout_width="9dp"
+        android:layout_height="110dp"
+        android:adjustViewBounds="true"
+        android:focusableInTouchMode="false"
+        android:scaleType="fitXY"
+        android:src="@android:drawable/bottom_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_upper_menu_activity" />
+
+    <Button
+        android:id="@+id/reboot_button_menu_activity"
+        android:layout_width="172dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="20dp"
+        android:text="Перезапустить устройство"
+        app:layout_constraintStart_toStartOf="@+id/bluetooth_name_text_edit_menu_activity"
+        app:layout_constraintTop_toBottomOf="@+id/bluetooth_name_text_edit_menu_activity" />
+
+    <EditText
+        android:id="@+id/bluetooth_name_text_edit_menu_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="text"
+        android:text="Name"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/bluetooth_name_text_view_menu_activity"
+        app:layout_constraintTop_toBottomOf="@+id/bluetooth_name_text_view_menu_activity" />
+
+    <TextView
+        android:id="@+id/bluetooth_name_text_view_menu_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:text="Имя bluetooth"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/background_text_view_menu_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="бэкграунд"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_upper_menu_activity" />
+
+    <TextView
+        android:id="@+id/anim_text_view_menu_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="108dp"
+        android:text="анимация"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_middle_menu_activity"
+        app:layout_constraintTop_toTopOf="@+id/background_text_view_menu_activity" />
+
+    <Switch
+        android:id="@+id/background_is_on_switch_menu_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:text="состояние бэкграунда"
+        app:layout_constraintEnd_toStartOf="@+id/background_select_button_menu_activity"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="@+id/background_text_view_menu_activity"
+        app:layout_constraintTop_toBottomOf="@+id/background_select_button_menu_activity" />
+
+    <Switch
+        android:id="@+id/anim_is_on_switch_menu_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="состояние анимации"
+        app:layout_constraintBottom_toBottomOf="@+id/background_is_on_switch_menu_activity"
+        app:layout_constraintStart_toStartOf="@+id/anim_text_view_menu_activity"
+        app:layout_constraintTop_toTopOf="@+id/background_is_on_switch_menu_activity" />
 </androidx.constraintlayout.widget.ConstraintLayout>

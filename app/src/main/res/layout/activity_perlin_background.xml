@@ -8,12 +8,424 @@
     tools:context=".PerlinBackgroundActivity">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/perlin_mic_window_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Perlin background"
+        android:layout_marginTop="24dp"
+        android:text="Окно микрофона"
+        app:layout_constraintStart_toStartOf="@+id/perlin_idle_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_profile_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_mic_timeput_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Таймаут микрофона"
+        app:layout_constraintStart_toEndOf="@+id/perlin_mic_window_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_profile_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_mic_pulse_text_view"
+        android:layout_width="115dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:text="Значение пульса"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_mic_timeput_text_view"
+        app:layout_constraintStart_toEndOf="@+id/perlin_mic_timeput_text_view"
+        app:layout_constraintTop_toTopOf="@+id/perlin_mic_timeput_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_mic_window_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_mic_window_text_view"
+        app:layout_constraintStart_toStartOf="@+id/perlin_mic_window_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_mic_window_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_mic_timeout_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_mic_timeput_text_view"
+        app:layout_constraintHorizontal_bias="0.449"
+        app:layout_constraintStart_toStartOf="@+id/perlin_mic_timeput_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_mic_timeput_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_mic_pulse_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_mic_pulse_text_view"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="@+id/perlin_mic_pulse_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_mic_timeput_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_idle_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perlin bakcground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/perlin_profile_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_idle_text_view"
+        app:layout_constraintStart_toStartOf="@+id/perlin_idle_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_idle_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_speed_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text="Скорость"
+        app:layout_constraintStart_toStartOf="@+id/perlin_idle_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_profile_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_brightness_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="224dp"
+        android:text="Яркость"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_speed_text_view"
+        app:layout_constraintStart_toStartOf="@+id/perlin_idle_text_view"
+        app:layout_constraintTop_toTopOf="@+id/perlin_speed_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_max_sat_flash_text_view"
+        android:layout_width="111dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:text="Максимальная вспышка насыщенность"
+        app:layout_constraintStart_toStartOf="@+id/perlin_allow_mic_switch"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_allow_mic_switch" />
+
+    <TextView
+        android:id="@+id/perlin_sat_flash_reduce_text_view"
+        android:layout_width="114dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="12dp"
+        android:text="Шаг убывания насыщенность"
+        app:layout_constraintStart_toStartOf="@+id/perlin_allow_mic_switch"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_max_sat_flash_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_grid_width_text_view"
+        android:layout_width="97dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="48dp"
+        android:text="Ширина сетки векторов"
+        app:layout_constraintStart_toStartOf="@+id/perlin_sat_flash_reduce_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_sat_flash_reduce_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_z_scale_text_view"
+        android:layout_width="81dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="12dp"
+        android:text="Множитель оси Z (тыс.)"
+        app:layout_constraintStart_toStartOf="@+id/perlin_grid_width_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_grid_width_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_hue_scale_text_view"
+        android:layout_width="81dp"
+        android:layout_height="36dp"
+        android:text="Множитель оттенка"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_z_scale_text_view"
+        app:layout_constraintStart_toStartOf="@+id/perlin_grid_height_text_view"
+        app:layout_constraintTop_toTopOf="@+id/perlin_z_scale_text_view"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/perlin_hue_offset_text_view"
+        android:layout_width="81dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="12dp"
+        android:text="Смещение оттенка"
+        app:layout_constraintStart_toStartOf="@+id/perlin_z_scale_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_z_scale_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_saturation_text_view"
+        android:layout_width="105dp"
+        android:layout_height="22dp"
+        android:text="Насыщенность"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_hue_offset_text_view"
+        app:layout_constraintStart_toStartOf="@+id/perlin_hue_scale_text_view"
+        app:layout_constraintTop_toTopOf="@+id/perlin_hue_offset_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_grid_height_text_view"
+        android:layout_width="114dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="48dp"
+        android:text="Длина сетки векторов"
+        app:layout_constraintStart_toStartOf="@+id/perlin_br_flash_reduce_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_sat_flash_reduce_text_view" />
+
+    <TextView
+        android:id="@+id/perlin_max_br_flash_text_view"
+        android:layout_width="106dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="12dp"
+        android:text="Максимальная вспышка яркость"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_max_sat_flash_text_view"
+        app:layout_constraintStart_toEndOf="@+id/perlin_max_sat_flash_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_max_sat_flash_text_view"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/perlin_br_flash_reduce_text_view"
+        android:layout_width="104dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="12dp"
+        android:text="Шаг убывания яркость"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_sat_flash_reduce_text_view"
+        app:layout_constraintStart_toEndOf="@+id/perlin_max_sat_flash_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_sat_flash_reduce_text_view"
+        app:layout_constraintVertical_bias="0.0" />
+    <TextView
+        android:id="@+id/perlin_run_jump_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Прыжок в кадрах"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_allow_mic_switch"
+        app:layout_constraintStart_toEndOf="@+id/perlin_allow_mic_switch"
+        app:layout_constraintTop_toTopOf="@+id/perlin_allow_mic_switch"
+        app:layout_constraintVertical_bias="0.483" />
+
+    <EditText
+        android:id="@+id/perlin_speed_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="48dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_speed_text_view"
+        app:layout_constraintStart_toEndOf="@+id/perlin_speed_text_view"
+        app:layout_constraintTop_toTopOf="@+id/perlin_speed_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_run_jump_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_brightness_plain_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/perlin_brightness_plain_text"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_brightness_plain_text" />
+
+    <EditText
+        android:id="@+id/perlin_brightness_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_brightness_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_mic_pulse_plain_text"
+        app:layout_constraintStart_toStartOf="@+id/perlin_mic_pulse_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_brightness_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_max_sat_flash_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_max_sat_flash_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_speed_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/perlin_speed_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_max_sat_flash_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_sat_flash_reduce_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_sat_flash_reduce_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_speed_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/perlin_speed_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_sat_flash_reduce_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_grid_width_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_grid_width_text_view"
+        app:layout_constraintStart_toEndOf="@+id/perlin_grid_width_text_view"
+        app:layout_constraintTop_toTopOf="@+id/perlin_grid_width_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_z_scale_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_z_scale_text_view"
+        app:layout_constraintStart_toStartOf="@+id/perlin_grid_width_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_z_scale_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_hue_offset_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_hue_offset_text_view"
+        app:layout_constraintStart_toStartOf="@+id/perlin_grid_width_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_hue_offset_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_grid_height_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_grid_height_text_view"
+        app:layout_constraintStart_toEndOf="@+id/perlin_grid_height_text_view"
+        app:layout_constraintTop_toTopOf="@+id/perlin_grid_height_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_hue_scale_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_hue_scale_text_view"
+        app:layout_constraintStart_toStartOf="@+id/perlin_grid_height_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_hue_scale_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_saturation_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_saturation_text_view"
+        app:layout_constraintStart_toStartOf="@+id/perlin_grid_height_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_saturation_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_max_br_flash_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_max_br_flash_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/perlin_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_max_br_flash_text_view" />
+
+    <EditText
+        android:id="@+id/perlin_br_flash_reduce_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/perlin_br_flash_reduce_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/perlin_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/perlin_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/perlin_br_flash_reduce_text_view" />
+
+    <ImageButton
+        android:id="@+id/perlin_back_to_menu_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/perlin_profile_select_button"
+        app:layout_constraintTop_toTopOf="@+id/perlin_profile_select_button"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <ImageButton
+        android:id="@+id/perlin_profile_select_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        app:layout_constraintStart_toEndOf="@+id/perlin_idle_text_view"
+        app:layout_constraintTop_toTopOf="@+id/perlin_idle_text_view"
+        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+
+    <ImageButton
+        android:id="@+id/perlin_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        app:layout_constraintStart_toEndOf="@+id/perlin_idle_text_view"
+        app:layout_constraintTop_toTopOf="@+id/perlin_idle_text_view"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <Switch
+        android:id="@+id/perlin_allow_mic_switch"
+        android:layout_width="138dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:text="Разрешить микрофон"
+        app:layout_constraintStart_toStartOf="@+id/perlin_speed_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/perlin_speed_text_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

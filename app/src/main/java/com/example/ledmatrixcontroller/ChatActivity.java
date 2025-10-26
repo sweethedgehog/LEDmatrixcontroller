@@ -27,6 +27,14 @@ public class ChatActivity extends AppCompatActivity {
     ArrayList<Integer> bytes;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        BluetoothManager.disconnect();
+        ProjectManager.wasConnected = false;
+//        clearAll();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);

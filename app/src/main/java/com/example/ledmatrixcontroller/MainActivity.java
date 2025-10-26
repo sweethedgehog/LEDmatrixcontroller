@@ -61,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         isConnecting = false;
         updateListView();
         // todo do not forget to empty settings
+        MenuActivity.clearAll();
+        SingleColorBackgroundActivity.clearAll();
+        RainbowBackgroundActivity.clearAll();
+        PerlinBackgroundActivity.clearAll();
         if (initSuccess) BluetoothManager.startScan();
     }
 

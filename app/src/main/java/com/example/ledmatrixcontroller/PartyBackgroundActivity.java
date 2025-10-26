@@ -11,6 +11,14 @@ import androidx.core.view.WindowInsetsCompat;
 public class PartyBackgroundActivity extends AppCompatActivity {
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        BluetoothManager.disconnect();
+        ProjectManager.wasConnected = false;
+//        clearAll();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
