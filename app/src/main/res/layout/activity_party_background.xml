@@ -7,13 +7,549 @@
     android:layout_height="match_parent"
     tools:context=".PartyBackgroundActivity">
 
+    <EditText
+        android:id="@+id/party_sat_flash_reduce_plain_text4"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_min_hue_text_view"
+        app:layout_constraintStart_toEndOf="@+id/party_chance_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_min_hue_text_view" />
+
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/party_sat_flash_reduce_text_view6"
+        android:layout_width="111dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
+        android:text="Минимальный оттенок"
+        app:layout_constraintEnd_toEndOf="@+id/party_chance_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/party_chance_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_chance_text_view" />
+
+    <TextView
+        android:id="@+id/party_sat_flash_reduce_text_view7"
+        android:layout_width="105dp"
+        android:layout_height="41dp"
+        android:text="Максимальный оттенок"
+        app:layout_constraintBottom_toBottomOf="@+id/party_min_hue_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_min_hue_text_view" />
+
+    <EditText
+        android:id="@+id/party_br_flash_reduce_plain_text4"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_max_hue_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_max_hue_text_view" />
+
+    <TextView
+        android:id="@+id/party_mic_window_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="party background"
+        android:layout_marginTop="24dp"
+        android:text="Окно микрофона"
+        app:layout_constraintStart_toStartOf="@+id/party_idle_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_profile_text_view" />
+
+    <TextView
+        android:id="@+id/party_mic_timeput_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Таймаут микрофона"
+        app:layout_constraintStart_toEndOf="@+id/party_mic_window_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_profile_text_view" />
+
+    <TextView
+        android:id="@+id/party_mic_pulse_text_view"
+        android:layout_width="115dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:text="Значение пульса"
+        app:layout_constraintBottom_toBottomOf="@+id/party_mic_timeput_text_view"
+        app:layout_constraintStart_toEndOf="@+id/party_mic_timeput_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_mic_timeput_text_view" />
+
+    <EditText
+        android:id="@+id/party_mic_window_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/party_mic_window_text_view"
+        app:layout_constraintStart_toStartOf="@+id/party_mic_window_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_mic_window_text_view" />
+
+    <EditText
+        android:id="@+id/party_mic_timeout_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/party_mic_timeput_text_view"
+        app:layout_constraintHorizontal_bias="0.449"
+        app:layout_constraintStart_toStartOf="@+id/party_mic_timeput_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_mic_timeput_text_view" />
+
+    <EditText
+        android:id="@+id/party_mic_pulse_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/party_mic_pulse_text_view"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="@+id/party_mic_pulse_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_mic_timeput_text_view" />
+
+    <TextView
+        android:id="@+id/party_idle_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Party background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+
+    <TextView
+        android:id="@+id/party_profile_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/party_idle_text_view"
+        app:layout_constraintStart_toStartOf="@+id/party_idle_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_idle_text_view" />
+
+    <TextView
+        android:id="@+id/party_speed_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text="Скорость"
+        app:layout_constraintStart_toStartOf="@+id/party_idle_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_profile_text_view" />
+
+    <TextView
+        android:id="@+id/party_brightness_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="224dp"
+        android:text="Яркость"
+        app:layout_constraintBottom_toBottomOf="@+id/party_speed_text_view"
+        app:layout_constraintStart_toStartOf="@+id/party_idle_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_speed_text_view" />
+
+    <TextView
+        android:id="@+id/party_max_sat_flash_text_view"
+        android:layout_width="111dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:text="Максимальная вспышка насыщенность"
+        app:layout_constraintStart_toStartOf="@+id/party_allow_mic_switch"
+        app:layout_constraintTop_toBottomOf="@+id/party_allow_mic_switch" />
+
+    <TextView
+        android:id="@+id/party_sat_flash_reduce_text_view"
+        android:layout_width="114dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="12dp"
+        android:text="Шаг убывания насыщенность"
+        app:layout_constraintStart_toStartOf="@+id/party_allow_mic_switch"
+        app:layout_constraintTop_toBottomOf="@+id/party_max_sat_flash_text_view" />
+
+    <TextView
+        android:id="@+id/party_chance_text_view"
+        android:layout_width="114dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:text="Шанс зажигания"
+        app:layout_constraintStart_toStartOf="@+id/party_sat_flash_reduce_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_sat_flash_reduce_text_view" />
+
+    <TextView
+        android:id="@+id/party_min_hue_text_view"
+        android:layout_width="111dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
+        android:text="Минимальный оттенок"
+        app:layout_constraintEnd_toEndOf="@+id/party_chance_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/party_chance_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_chance_text_view" />
+
+    <TextView
+        android:id="@+id/party_min_sat_text_view"
+        android:layout_width="111dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
+        android:text="Минимальная насыщенность"
+        app:layout_constraintEnd_toEndOf="@+id/party_chance_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/party_chance_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_sat_flash_reduce_plain_text4" />
+
+    <TextView
+        android:id="@+id/party_reduce_text_view"
+        android:layout_width="102dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:text="Шаг убывания"
+        app:layout_constraintEnd_toEndOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_br_flash_reduce_plain_text" />
+
+    <TextView
+        android:id="@+id/party_max_hue_text_view"
+        android:layout_width="105dp"
+        android:layout_height="41dp"
+        android:text="Максимальный оттенок"
+        app:layout_constraintBottom_toBottomOf="@+id/party_min_hue_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_min_hue_text_view" />
+
+    <TextView
+        android:id="@+id/party_max_sat_text_view"
+        android:layout_width="105dp"
+        android:layout_height="41dp"
+        android:text="Максимальная насыщенность"
+        app:layout_constraintBottom_toBottomOf="@+id/party_min_sat_plain_text"
+        app:layout_constraintEnd_toEndOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_min_sat_plain_text" />
+
+    <TextView
+        android:id="@+id/party_base_step_text_view"
+        android:layout_width="102dp"
+        android:layout_height="27dp"
+        android:text="Шаг радуги"
+        app:layout_constraintBottom_toBottomOf="@+id/party_is_rainbow_going_switch"
+        app:layout_constraintEnd_toEndOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_is_rainbow_going_switch" />
+
+    <TextView
+        android:id="@+id/party_min_value_text_view"
+        android:layout_width="104dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:text="Минимальное значение"
+        app:layout_constraintEnd_toEndOf="@+id/party_base_step_text_view"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_base_step_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_base_step_text_view" />
+
+    <TextView
+        android:id="@+id/party_max_br_flash_text_view"
+        android:layout_width="106dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="12dp"
+        android:text="Максимальная вспышка яркость"
+        app:layout_constraintBottom_toBottomOf="@+id/party_max_sat_flash_text_view"
+        app:layout_constraintStart_toEndOf="@+id/party_max_sat_flash_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_max_sat_flash_text_view"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/party_br_flash_reduce_text_view"
+        android:layout_width="104dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="12dp"
+        android:text="Шаг убывания яркость"
+        app:layout_constraintBottom_toBottomOf="@+id/party_sat_flash_reduce_text_view"
+        app:layout_constraintStart_toEndOf="@+id/party_max_sat_flash_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_sat_flash_reduce_text_view"
+        app:layout_constraintVertical_bias="0.0" />
+    <TextView
+        android:id="@+id/party_run_jump_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Прыжок в кадрах"
+        app:layout_constraintBottom_toBottomOf="@+id/party_allow_mic_switch"
+        app:layout_constraintStart_toEndOf="@+id/party_allow_mic_switch"
+        app:layout_constraintTop_toTopOf="@+id/party_allow_mic_switch"
+        app:layout_constraintVertical_bias="0.483" />
+
+
+    <EditText
+        android:id="@+id/party_speed_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="48dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_speed_text_view"
+        app:layout_constraintStart_toEndOf="@+id/party_speed_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_speed_text_view" />
+
+    <EditText
+        android:id="@+id/party_run_jump_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/party_brightness_plain_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/party_brightness_plain_text"
+        app:layout_constraintTop_toBottomOf="@+id/party_brightness_plain_text" />
+
+    <EditText
+        android:id="@+id/party_brightness_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_brightness_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_mic_pulse_plain_text"
+        app:layout_constraintStart_toStartOf="@+id/party_mic_pulse_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_brightness_text_view" />
+
+    <EditText
+        android:id="@+id/party_max_sat_flash_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_max_sat_flash_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_speed_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_speed_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_max_sat_flash_text_view" />
+
+    <EditText
+        android:id="@+id/party_sat_flash_reduce_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_sat_flash_reduce_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_speed_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_speed_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_sat_flash_reduce_text_view" />
+
+    <EditText
+        android:id="@+id/party_chance_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_chance_text_view"
+        app:layout_constraintStart_toEndOf="@+id/party_chance_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_chance_text_view" />
+
+    <EditText
+        android:id="@+id/party_min_hue_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_min_hue_text_view"
+        app:layout_constraintStart_toEndOf="@+id/party_chance_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_min_hue_text_view" />
+
+    <EditText
+        android:id="@+id/party_min_sat_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_min_sat_text_view"
+        app:layout_constraintStart_toEndOf="@+id/party_chance_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_min_sat_text_view" />
+
+    <EditText
+        android:id="@+id/party_max_br_flash_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_max_br_flash_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_max_br_flash_text_view" />
+
+
+    <EditText
+        android:id="@+id/party_br_flash_reduce_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_br_flash_reduce_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_br_flash_reduce_text_view" />
+
+    <EditText
+        android:id="@+id/party_reduce_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_reduce_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_reduce_text_view" />
+
+    <EditText
+        android:id="@+id/party_max_hue_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_max_hue_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_max_hue_text_view" />
+
+    <EditText
+        android:id="@+id/party_max_sat_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_max_sat_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_max_sat_text_view" />
+
+    <EditText
+        android:id="@+id/party_base_step_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_base_step_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_base_step_text_view" />
+
+    <EditText
+        android:id="@+id/party_min_value_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/party_min_value_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/party_run_jump_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/party_min_value_text_view" />
+
+    <ImageButton
+        android:id="@+id/party_back_to_menu_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/party_profile_select_button"
+        app:layout_constraintTop_toTopOf="@+id/party_profile_select_button"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <ImageButton
+        android:id="@+id/party_profile_select_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        app:layout_constraintStart_toEndOf="@+id/party_idle_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_idle_text_view"
+        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+
+    <ImageButton
+        android:id="@+id/party_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        app:layout_constraintStart_toEndOf="@+id/party_idle_text_view"
+        app:layout_constraintTop_toTopOf="@+id/party_idle_text_view"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <Switch
+        android:id="@+id/party_allow_mic_switch"
+        android:layout_width="138dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:text="Разрешить микрофон"
+        app:layout_constraintStart_toStartOf="@+id/party_speed_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_speed_text_view" />
+
+    <Switch
+        android:id="@+id/party_is_rainbow_going_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Радуга идет?"
+        app:layout_constraintStart_toStartOf="@+id/party_min_sat_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/party_min_sat_text_view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

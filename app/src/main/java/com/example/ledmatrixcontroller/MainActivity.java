@@ -65,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         SingleColorBackgroundActivity.clearAll();
         RainbowBackgroundActivity.clearAll();
         PerlinBackgroundActivity.clearAll();
+        PartyBackgroundActivity.clearAll();
+        GifActivity.clearAll();
+        RunningTextActivity.clearAll();
+        ProjectManager.gifs.clear();
         if (initSuccess) BluetoothManager.startScan();
     }
 

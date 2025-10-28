@@ -28,7 +28,6 @@ public class MenuActivity extends AppCompatActivity {
     public static boolean isGifOn = true;
     public static String name = "name";
     public static ArrayList<String> anims = new ArrayList<>(Arrays.asList(new String[]{"text"}));
-    ;
 
     private EditText nameView;
     private Button rebootButtonView;
@@ -131,7 +130,13 @@ public class MenuActivity extends AppCompatActivity {
                                 finish();
                                 Intent intent;
                                 if (bufS.equals("text")) intent = new Intent(MenuActivity.this, RunningTextActivity.class);
-                                else intent = new Intent(MenuActivity.this, GifActivity.class);
+                                else {
+                                    intent = new Intent(MenuActivity.this, GifActivity.class);
+                                    GifActivity.name = bufS;
+                                    GifActivity.currProfile = ProjectManager.currProfilesGifs.get(bufS);
+                                    GifActivity.profilesNames = ProjectManager.gifsProfiles.get(bufS);
+                                    GifActivity.profiles = ProjectManager.gifs.get(bufS);
+                                }
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 MenuActivity.this.startActivity(intent);
                             }

@@ -26,8 +26,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.welie.blessed.BluetoothPeripheral;
 import com.welie.blessed.GattStatus;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -41,6 +43,9 @@ public class ProjectManager extends AppCompatActivity {
     private static String gettingSettingsFor = "";
     private static int indexOfGettingSetting = 0;
     public static final ArrayList<String> backgrounds = new ArrayList<>(Arrays.asList(new String[]{"SingleColor", "Rainbow", "PerlinBackground", "Party"}));
+    public static HashMap<String, HashMap<String, int[]>> gifs = new HashMap<>();
+    public static HashMap<String, String> currProfilesGifs = new HashMap<>();
+    public static HashMap<String, ArrayList<String>> gifsProfiles = new HashMap<>();
     private static final BluetoothFunc onNotify = new BluetoothFunc() {
         @Override
         public void run(BluetoothPeripheral peripheral, byte[] value, GattStatus status) {
@@ -80,16 +85,28 @@ public class ProjectManager extends AppCompatActivity {
                             data.equals("isGifOn") || data.equals("RunningText")) gettingSettingsFor = data;
                     else {
                         MenuActivity.anims.add(data);
+                        gifs.put(data, new HashMap<>());
+                        gifsProfiles.put(data, new ArrayList<>());
                         gettingSettingsFor = data;
                     }
                 }
                 else if (data.equals("\tfinish")) gettingSettingsFor = "";
                 else {
                     if (gettingSettingsFor.equals("isGifOn")) MenuActivity.isGifOn = data.getBytes()[0] != 0;
-                    if (gettingSettingsFor.equals("isBackgroundOn")) MenuActivity.isBackgroundOn = data.getBytes()[0] != 0;
-                    if (gettingSettingsFor.equals(backgrounds.get(0))) SingleColorBackgroundActivity.setSettings(indexOfGettingSetting, value);
-                    if (gettingSettingsFor.equals(backgrounds.get(1))) RainbowBackgroundActivity.setSettings(indexOfGettingSetting, value);
-                    if (gettingSettingsFor.equals(backgrounds.get(2))) PerlinBackgroundActivity.setSettings(indexOfGettingSetting, value);
+                    else if (gettingSettingsFor.equals("isBackgroundOn")) MenuActivity.isBackgroundOn = data.getBytes()[0] != 0;
+                    else if (gettingSettingsFor.equals(backgrounds.get(0))) SingleColorBackgroundActivity.setSettings(indexOfGettingSetting, value);
+                    else if (gettingSettingsFor.equals(backgrounds.get(1))) RainbowBackgroundActivity.setSettings(indexOfGettingSetting, value);
+                    else if (gettingSettingsFor.equals(backgrounds.get(2))) PerlinBackgroundActivity.setSettings(indexOfGettingSetting, value);
+                    else if (gettingSettingsFor.equals(backgrounds.get(3))) PartyBackgroundActivity.setSettings(indexOfGettingSetting, value);
+                    else if (gettingSettingsFor.equals("RunningText")) RunningTextActivity.setSettings(indexOfGettingSetting, value);
+                    else {
+                        if (indexOfGettingSetting == 0) currProfilesGifs.put(gettingSettingsFor, new String(value));
+                        else if (indexOfGettingSetting % 2 == 1) gifsProfiles.get(gettingSettingsFor).add(new String(value));
+                        else Objects.requireNonNull(gifs.get(gettingSettingsFor)).
+                                    put(Objects.requireNonNull(gifsProfiles.get(gettingSettingsFor)).
+                                            get(Objects.requireNonNull(gifsProfiles.
+                                                    get(gettingSettingsFor)).size() - 1), strToIntArr(value));
+                    }
                     // todo logic for getting regular settings
                     indexOfGettingSetting++;
                 }
