@@ -122,7 +122,7 @@ public class MenuActivity extends AppCompatActivity {
                         anims, new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                String bufS = anims.get(i);
+                                String bufS = anims.get(i).trim();
                                 byte[] buf = new byte[bufS.length() + 2];
                                 buf[0] = 0; buf[1] = 0;
                                 for (int j = 0; j < bufS.length(); ++j) buf[j + 2] = bufS.getBytes()[j];

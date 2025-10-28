@@ -82,7 +82,7 @@ public class ProjectManager extends AppCompatActivity {
                         context.startActivity(intent);
                     }
                     else if (backgrounds.contains(data) || data.equals("isBackgroundOn") ||
-                            data.equals("isGifOn") || data.equals("RunningText")) gettingSettingsFor = data;
+                            data.equals("isGifOn") || data.equals("text")) gettingSettingsFor = data;
                     else {
                         MenuActivity.anims.add(data);
                         gifs.put(data, new HashMap<>());
@@ -98,14 +98,16 @@ public class ProjectManager extends AppCompatActivity {
                     else if (gettingSettingsFor.equals(backgrounds.get(1))) RainbowBackgroundActivity.setSettings(indexOfGettingSetting, value);
                     else if (gettingSettingsFor.equals(backgrounds.get(2))) PerlinBackgroundActivity.setSettings(indexOfGettingSetting, value);
                     else if (gettingSettingsFor.equals(backgrounds.get(3))) PartyBackgroundActivity.setSettings(indexOfGettingSetting, value);
-                    else if (gettingSettingsFor.equals("RunningText")) RunningTextActivity.setSettings(indexOfGettingSetting, value);
+                    else if (gettingSettingsFor.trim().equals("text")) RunningTextActivity.setSettings(indexOfGettingSetting, value);
                     else {
                         if (indexOfGettingSetting == 0) currProfilesGifs.put(gettingSettingsFor, new String(value));
-                        else if (indexOfGettingSetting % 2 == 1) gifsProfiles.get(gettingSettingsFor).add(new String(value));
+                        else if (indexOfGettingSetting % 2 == 1) Objects.requireNonNull(gifsProfiles.
+                                get(gettingSettingsFor)).add(new String(value));
                         else Objects.requireNonNull(gifs.get(gettingSettingsFor)).
                                     put(Objects.requireNonNull(gifsProfiles.get(gettingSettingsFor)).
                                             get(Objects.requireNonNull(gifsProfiles.
-                                                    get(gettingSettingsFor)).size() - 1), strToIntArr(value));
+                                                    get(gettingSettingsFor)).size() - 1),
+                                            strToIntArr((new String(value).substring(4).getBytes())));
                     }
                     // todo logic for getting regular settings
                     indexOfGettingSetting++;

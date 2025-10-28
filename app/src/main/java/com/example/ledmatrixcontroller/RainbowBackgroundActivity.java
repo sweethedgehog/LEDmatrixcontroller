@@ -298,13 +298,13 @@ public class RainbowBackgroundActivity extends AppCompatActivity {
                 return false;
             }
         });
-        reduceFlashView.setOnKeyListener(new View.OnKeyListener() {
+        reduceBrightnessJumpView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER){
 
                     int index = 9;
-                    EditText bufView = reduceFlashView;
+                    EditText bufView = reduceBrightnessJumpView;
 
                     int buf = Integer.parseInt(String.valueOf(bufView.getText()));
                     if (buf > 255) { buf = 255; bufView.setText(String.valueOf(buf)); }

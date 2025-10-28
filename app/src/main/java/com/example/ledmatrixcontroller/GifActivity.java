@@ -242,7 +242,7 @@ public class GifActivity extends AppCompatActivity {
 
                 Objects.requireNonNull(profiles.get(currProfile))[index] = b ? 1 : 0;
                 byte[] send = new byte[4];
-                send[0] = 1;
+                send[0] = 0;
                 send[1] = 1;
                 send[2] = (byte) (index);
                 send[3] = (byte) (b ? 1 : 0);
@@ -327,13 +327,13 @@ public class GifActivity extends AppCompatActivity {
                 return false;
             }
         });
-        reduceFlashView.setOnKeyListener(new View.OnKeyListener() {
+        reduceBrightnessJumpView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
 
                     int index = 9;
-                    EditText bufView = reduceFlashView;
+                    EditText bufView = reduceBrightnessJumpView;
 
                     int buf = Integer.parseInt(String.valueOf(bufView.getText()));
                     if (buf > 255) {
@@ -420,6 +420,7 @@ public class GifActivity extends AppCompatActivity {
                                                     profilesNames.add(s);
                                                     profilesNames.add("Добавить");
                                                     currProfile = s;
+                                                    ProjectManager.currProfilesGifs.put(name, currProfile);
                                                     profiles.put(s, buf);
                                                     updateAll();
                                                 }
@@ -427,6 +428,7 @@ public class GifActivity extends AppCompatActivity {
                                     return;
                                 }
                                 currProfile = profilesNames.get(i);
+                                ProjectManager.currProfilesGifs.put(name, currProfile);
                                 updateAll();
                                 byte[] send = new byte[3 + currProfile.length()];
                                 send[0] = 0;
@@ -454,6 +456,7 @@ public class GifActivity extends AppCompatActivity {
                 profilesNames.remove(currProfile);
                 profiles.remove(currProfile);
                 currProfile = "default";
+                ProjectManager.currProfilesGifs.put(name, "default");
                 updateAll();
             }
         });

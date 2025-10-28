@@ -157,6 +157,17 @@
         app:layout_constraintTop_toTopOf="@+id/running_text_hue_offset_text_view" />
 
     <TextView
+        android:id="@+id/running_text_y_offset_text_view"
+        android:layout_width="82dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:text="Смещение по Y"
+        app:layout_constraintBottom_toBottomOf="@+id/running_text_plain_text"
+        app:layout_constraintEnd_toStartOf="@+id/running_text_value_offset_text_view"
+        app:layout_constraintStart_toEndOf="@+id/running_text_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/running_text_plain_text" />
+
+    <TextView
         android:id="@+id/running_text_value_offset_text_view"
         android:layout_width="95dp"
         android:layout_height="37dp"
@@ -311,6 +322,19 @@
         app:layout_constraintTop_toBottomOf="@+id/running_text_hue_offset_text_view" />
 
     <EditText
+        android:id="@+id/running_text_y_offset_plain_text"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:imeOptions="flagNoEnterAction"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/running_text_y_offset_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/running_text_value_offset_plain_text"
+        app:layout_constraintStart_toStartOf="@+id/running_text_value_offset_plain_text"
+        app:layout_constraintTop_toTopOf="@+id/running_text_y_offset_text_view" />
+
+    <EditText
         android:id="@+id/running_text_max_br_flash_plain_text"
         android:layout_width="65dp"
         android:layout_height="49dp"
@@ -377,13 +401,12 @@
 
     <EditText
         android:id="@+id/running_text_plain_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="144dp"
+        android:layout_height="42dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/running_text_hue_offset_plain_text"
         app:layout_constraintTop_toBottomOf="@+id/running_text_sat_offset_plain_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

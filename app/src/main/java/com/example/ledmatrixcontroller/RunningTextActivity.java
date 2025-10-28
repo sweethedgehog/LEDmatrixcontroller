@@ -2,6 +2,7 @@ package com.example.ledmatrixcontroller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,7 +33,7 @@ public class RunningTextActivity extends AppCompatActivity {
     private static ImageButton profilesButton, menuButton, deleteButton;
 
     public static String text;
-    private static EditText hueOffsetView, saturationOffsetView, valueOffsetView, textView;
+    private static EditText hueOffsetView, saturationOffsetView, valueOffsetView, textView, yOffsetView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class RunningTextActivity extends AppCompatActivity {
         saturationOffsetView = findViewById(R.id.running_text_sat_offset_plain_text);
         valueOffsetView = findViewById(R.id.running_text_value_offset_plain_text);
         textView = findViewById(R.id.running_text_plain_text);
+        yOffsetView = findViewById(R.id.running_text_y_offset_plain_text);
 
         updateAll();
         listenerInit();
@@ -92,6 +94,7 @@ public class RunningTextActivity extends AppCompatActivity {
         hueOffsetView.setText(String.valueOf(Objects.requireNonNull(profiles.get(currProfile))[11]));
         saturationOffsetView.setText(String.valueOf(Objects.requireNonNull(profiles.get(currProfile))[12]));
         valueOffsetView.setText(String.valueOf(Objects.requireNonNull(profiles.get(currProfile))[13]));
+        yOffsetView.setText(String.valueOf(Objects.requireNonNull(profiles.get(currProfile))[14]));
 
         textView.setText(text);
     }
@@ -236,7 +239,7 @@ public class RunningTextActivity extends AppCompatActivity {
 
                 Objects.requireNonNull(profiles.get(currProfile))[index] = b ? 1 : 0;
                 byte[] send = new byte[4];
-                send[0] = 1;
+                send[0] = 0;
                 send[1] = 1;
                 send[2] = (byte) (index);
                 send[3] = (byte) (b ? 1 : 0);
@@ -321,13 +324,13 @@ public class RunningTextActivity extends AppCompatActivity {
                 return false;
             }
         });
-        reduceFlashView.setOnKeyListener(new View.OnKeyListener() {
+        reduceBrightnessJumpView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
 
                     int index = 9;
-                    EditText bufView = reduceFlashView;
+                    EditText bufView = reduceBrightnessJumpView;
 
                     int buf = Integer.parseInt(String.valueOf(bufView.getText()));
                     if (buf > 255) {
@@ -530,7 +533,33 @@ public class RunningTextActivity extends AppCompatActivity {
                 return false;
             }
         });
-        //todo maybe some clever text setting
+        yOffsetView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
+
+                    int index = 14;
+                    EditText bufView = yOffsetView;
+
+                    int buf = Integer.parseInt(String.valueOf(bufView.getText()));
+                    if (buf > 255) {
+                        buf = 255;
+                        bufView.setText(String.valueOf(buf));
+                    }
+                    Objects.requireNonNull(profiles.get(currProfile))[index] = buf;
+                    byte[] send = new byte[4];
+                    send[0] = 0;
+                    send[1] = 1;
+                    send[2] = (byte) (index);
+                    send[3] = (byte) (buf);
+                    BluetoothManager.send(send);
+                    ProjectManager.hideKeyboard(RunningTextActivity.this, bufView);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         textView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
@@ -541,6 +570,7 @@ public class RunningTextActivity extends AppCompatActivity {
                     String buf = String.valueOf(textView.getText());
                     buf = buf.toUpperCase();
                     textView.setText(buf);
+                    text = buf;
                     byte[] send = new byte[2 + buf.length()];
                     send[0] = 0;
                     send[1] = 4;
@@ -555,10 +585,11 @@ public class RunningTextActivity extends AppCompatActivity {
     }
 
     public static void setSettings(int i, byte[] settings) {
-        if (i == 0) currProfile = new String(settings);
-        else if (i == 1) text = new String(settings);
+        if (i == 0) text = new String(settings);
+        else if (i == 1) currProfile = new String(settings);
         else if (i % 2 == 0) profilesNames.add(new String(settings));
-        else profiles.put(profilesNames.get(profilesNames.size() - 1), ProjectManager.strToIntArr(settings));
+        else profiles.put(profilesNames.get(profilesNames.size() - 1),
+                    ProjectManager.strToIntArr((new String(settings).substring(4).getBytes())));
     }
 
     public static void clearAll(){
