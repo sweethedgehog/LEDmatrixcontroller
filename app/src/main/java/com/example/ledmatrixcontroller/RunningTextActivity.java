@@ -32,7 +32,7 @@ public class RunningTextActivity extends AppCompatActivity {
     private static TextView profileView;
     private static ImageButton profilesButton, menuButton, deleteButton;
 
-    public static String text;
+    public static String text, ruAlbabet = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";;
     private static EditText hueOffsetView, saturationOffsetView, valueOffsetView, textView, yOffsetView;
 
     @Override
@@ -568,13 +568,17 @@ public class RunningTextActivity extends AppCompatActivity {
                     EditText bufView = textView;
 
                     String buf = String.valueOf(textView.getText());
-                    buf = buf.toUpperCase();
+                    buf = buf.replace('ё', 'е').replace('Ё', 'Е').toUpperCase();
                     textView.setText(buf);
                     text = buf;
                     byte[] send = new byte[2 + buf.length()];
                     send[0] = 0;
                     send[1] = 4;
-                    for (int j = 0; j < buf.length(); j++) send[j + 2] = buf.getBytes()[j];
+                    for (int j = 0; j < buf.length(); j++) {
+                        if (ruAlbabet.contains(String.valueOf(buf.charAt(j))))
+                            send[j + 2] = (byte) ruAlbabet.indexOf(buf.charAt(j));
+                        else send[j + 2] = buf.getBytes()[j];
+                    }
                     BluetoothManager.send(send);
                     ProjectManager.hideKeyboard(RunningTextActivity.this, bufView);
                     return true;
@@ -585,7 +589,14 @@ public class RunningTextActivity extends AppCompatActivity {
     }
 
     public static void setSettings(int i, byte[] settings) {
-        if (i == 0) text = new String(settings);
+        if (i == 0){
+            text = "";
+            String buf = new String(settings);
+            for (int j = 0; j < settings.length; ++j){
+                if (settings[j] < 32 && settings[j] >= 0) text += ruAlbabet.charAt(settings[j]);
+                else text += buf.charAt(j);
+            }
+        }
         else if (i == 1) currProfile = new String(settings);
         else if (i % 2 == 0) profilesNames.add(new String(settings));
         else profiles.put(profilesNames.get(profilesNames.size() - 1),
